@@ -1,9 +1,9 @@
-vagrant-hadoop-2.6.0-spark-1.3.0
+Spark on Vagrant
 ================================
 
 # Introduction
 
-Vagrant project to spin up a cluster of 4 virtual machines with Hadoop v2.6.0 and Spark v1.3.0. 
+Vagrant project to spin up a cluster of 4 virtual machines with Hadoop v2.6.0 and Spark v1.4.1. Based on the excellent work of [Jee Vang](https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1) and [Nick Tai](https://github.com/CorcovadoMing/vagrant-hadoop-2.4.1-spark-1.0.1).
 
 1. node1 : HDFS NameNode + Spark Master
 2. node2 : YARN ResourceManager + JobHistoryServer + ProxyServer
@@ -14,11 +14,10 @@ Vagrant project to spin up a cluster of 4 virtual machines with Hadoop v2.6.0 an
 
 1. [Download and install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
-3. Run ```vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box```
-4. Git clone this project, and change directory (cd) into this project (directory).
-5. Run ```vagrant up``` to create the VM.
-6. Run ```vagrant ssh``` to get into your VM.
-7. Run ```vagrant destroy``` when you want to destroy and get rid of the VM.
+3. Git clone this project, and change directory (cd) into this project (directory).
+4. Run ```vagrant up``` to create the VM.
+5. Run ```vagrant ssh``` to get into your VM.
+6. Run ```vagrant destroy``` when you want to destroy and get rid of the VM.
 
 Some gotcha's.
 

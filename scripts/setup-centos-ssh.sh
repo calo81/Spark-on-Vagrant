@@ -19,7 +19,11 @@ done
 #echo "total nodes = $TOTAL_NODES"
 
 function installSSHPass {
-	yum -y install sshpass
+  # enable epel repo
+  wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+  rpm -ivh epel-release-7-5.noarch.rpm
+  # install sshpass
+  yum -y install sshpass
 }
 
 function overwriteSSHCopyId {
