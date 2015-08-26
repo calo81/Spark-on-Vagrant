@@ -1,10 +1,16 @@
 #!/bin/bash
 source "/vagrant/scripts/common.sh"
 
-function formatNameNode {
-	$HADOOP_PREFIX/bin/hdfs namenode -format myhadoop -force -noninteractive
-	echo "formatted namenode"
-}
+#function formatNameNode {
+#echo "Checking formatting of Namenode"
+#
+#if [[ $($HADOOP_PREFIX/bin/hadoop fs -ls / | wc -l) -eq 0 ]]; then 
+#$HADOOP_PREFIX/bin/hdfs namenode -format myhadoop -force -noninteractive
+#echo "formatted namenode"
+#else
+#echo "namenode already formatted"
+#fi
+#}
 
 function startHDFS {
 	$HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
@@ -32,7 +38,6 @@ function startSpark {
 	echo "started spark"
 }
 
-formatNameNode
 startHDFS
 startYarn
 createEventLogDir

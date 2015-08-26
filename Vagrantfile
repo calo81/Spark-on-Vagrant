@@ -46,7 +46,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				s.args = "-s 3 -t #{numNodes}"
 			end
 			if i == 1
-				node.vm.provision "shell", path: "scripts/init-start-all-services.sh"
+        node.vm.provision "shell", path: "scripts/hadoop-format-namenode.sh"
+				node.vm.provision "shell", path: "scripts/init-start-all-services.sh", run: "always"
 			end
 		end
 	end
