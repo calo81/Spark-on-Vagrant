@@ -35,7 +35,7 @@ If you have the resources (CPU + Disk Space + Memory), you may modify Vagrantfil
 You can make the VM setup even faster if you pre-download the Hadoop, Spark, and Oracle JDK into the /resources directory.
 
 1. /resources/hadoop-2.6.0.tar.gz
-2. /resources/spark-1.3.0-bin-hadoop2.4.tgz
+2. /resources/spark-1.4.1-bin-hadoop2.6.tgz
 3. /resources/jdk-7u51-linux-x64.gz
 
 The setup script will automatically detect if these files (with precisely the same names) exist and use them instead. If you are using slightly different versions, you will have to modify the script accordingly.
@@ -71,7 +71,12 @@ $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
     $SPARK_HOME/lib/spark-examples*.jar \
     100
 ```
-	
+Note: If you get the following warning:
+```
+Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources"
+```
+then reduce the number of executor cores to 1.
+
 ### Test Spark using Shell
 Start the Spark shell using the following command. Try NOT to run this command on the slave nodes.
 
@@ -79,7 +84,10 @@ Start the Spark shell using the following command. Try NOT to run this command o
 $SPARK_HOME/bin/spark-shell --master spark://node1:7077
 ```
 
-Then go here https://spark.apache.org/docs/latest/quick-start.html to start the tutorial. Most likely, you will have to load data into HDFS to make the tutorial work (Spark cannot read data on the local file system).
+Then go here https://spark.apache.org/docs/latest/quick-start.html to start the tutorial. Start by using the following command:
+```
+val textFile = sc.textFile("file:///vagrant/README.md")
+```
 
 You might also want to dive into the learn-scala folder as that is a companion Scala project to learn Spark.
 
