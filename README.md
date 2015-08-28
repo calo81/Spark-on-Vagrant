@@ -5,7 +5,7 @@ Spark on Vagrant
 
 Vagrant project to spin up a cluster of 4 virtual machines with Hadoop v2.6.0 and Spark v1.4.1. Based on the excellent work of [Jee Vang](https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1) and [Nick Tai](https://github.com/CorcovadoMing/vagrant-hadoop-2.4.1-spark-1.0.1).
 
-1. node1 : HDFS NameNode + Spark Master
+1. node1 : HDFS NameNode + Spark Master + Anaconda
 2. node2 : YARN ResourceManager + JobHistoryServer + ProxyServer
 3. node3 : HDFS DataNode + YARN NodeManager + Spark Slave
 4. node4 : HDFS DataNode + YARN NodeManager + Spark Slave
@@ -32,11 +32,12 @@ Some gotcha's.
 If you have the resources (CPU + Disk Space + Memory), you may modify Vagrantfile to have even more HDFS DataNodes, YARN NodeManagers, and Spark slaves. Just find the line that says "numNodes = 4" in Vagrantfile and increase that number. The scripts should dynamically provision the additional slaves for you.
 
 # Make the VMs setup faster
-You can make the VM setup even faster if you pre-download the Hadoop, Spark, and Oracle JDK into the /resources directory.
+You can make the VM setup even faster if you pre-download the Hadoop, Spark, Oracle JDK and Anaconda into the /resources directory.
 
 1. /resources/hadoop-2.6.0.tar.gz
 2. /resources/spark-1.4.1-bin-hadoop2.6.tgz
 3. /resources/jdk-7u51-linux-x64.gz
+4. /resources/Anaconda3-2.3.0-Linux-x86_64.sh
 
 The setup script will automatically detect if these files (with precisely the same names) exist and use them instead. If you are using slightly different versions, you will have to modify the script accordingly.
 
@@ -83,14 +84,22 @@ Then go here https://spark.apache.org/docs/latest/quick-start.html to start the 
 
 You might also want to dive into the learn-scala folder as that is a companion Scala project to learn Spark.
 
+### Test IPython Notebook
+Start the Ipython Notebook using the following command:
+```
+ipython notebook --ip=0.0.0.0
+```
+Since there is no graphical environment in the virtual machine, the notebook is only accesible from the host. In a host browser enter the following URL http://10.211.55.101:8888
+
 # Web UI
-You can check the following URLs to monitor the Hadoop daemons.
+You can check the following URLs to monitor the Hadoop daemons or the IPython Notebook.
 
 1. [NameNode] (http://10.211.55.101:50070/dfshealth.html)
 2. [ResourceManager] (http://10.211.55.102:8088/cluster)
 3. [JobHistory] (http://10.211.55.102:19888/jobhistory)
 4. [Spark] (http://10.211.55.101:8080)
 5. [Spark History] (http://10.211.55.101:18080)
+6. [IPython Notebook](http://10.211.55.101:8888)
 
 # Vagrant boxes
 A list of available Vagrant boxes is shown at http://www.vagrantbox.es. 

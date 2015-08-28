@@ -24,6 +24,8 @@ function installSSHPass {
   rpm -ivh epel-release-7-5.noarch.rpm
   # install sshpass
   yum -y install sshpass
+  # remove the rpm
+  rm epel-release-7-5.noarch.rpm
 }
 
 function overwriteSSHCopyId {

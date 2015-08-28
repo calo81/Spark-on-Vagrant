@@ -21,6 +21,12 @@ RES_SSH_COPYID_ORIGINAL=$SSH_RES_DIR/ssh-copy-id.original
 RES_SSH_COPYID_MODIFIED=$SSH_RES_DIR/ssh-copy-id.modified
 RES_SSH_CONFIG=$SSH_RES_DIR/config
 
+#Anaconda
+ANACONDA_VERSION=Anaconda3-2.3.0
+ANACONDA_ARCHIVE=$ANACONDA_VERSION-Linux-x86_64.sh
+ANACONDA_MIRROR_DOWNLOAD=https://repo.continuum.io/archive/Anaconda3-2.3.0-Linux-x86_64.sh
+ANACONDA_RES_DIR=/vagrant/resources/anaconda
+
 function resourceExists {
 	FILE=/vagrant/resources/$1
 	if [ -e $FILE ]
