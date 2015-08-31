@@ -72,7 +72,12 @@ $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
     $SPARK_HOME/lib/spark-examples*.jar \
     100
 ```
-	
+Note: If you get the following warning:
+```
+Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources"
+```
+then reduce the number of executor cores to 1.
+
 ### Test Spark using Shell
 Start the Spark shell using the following command. Try NOT to run this command on the slave nodes.
 
@@ -80,7 +85,10 @@ Start the Spark shell using the following command. Try NOT to run this command o
 $SPARK_HOME/bin/spark-shell --master spark://node1:7077
 ```
 
-Then go here https://spark.apache.org/docs/latest/quick-start.html to start the tutorial. Most likely, you will have to load data into HDFS to make the tutorial work (Spark cannot read data on the local file system).
+Then go here https://spark.apache.org/docs/latest/quick-start.html to start the tutorial. Start by using the following command:
+```
+val textFile = sc.textFile("file:///vagrant/README.md")
+```
 
 You might also want to dive into the learn-scala folder as that is a companion Scala project to learn Spark.
 
