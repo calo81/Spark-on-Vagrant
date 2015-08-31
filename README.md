@@ -3,7 +3,7 @@ Spark on Vagrant
 
 # Introduction
 
-Vagrant project to spin up a cluster of 4 virtual machines with Hadoop v2.6.0 and Spark v1.4.1. Based on the excellent work of [Jee Vang](https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1) and [Nick Tai](https://github.com/CorcovadoMing/vagrant-hadoop-2.4.1-spark-1.0.1).
+Vagrant project to spin up a cluster of 4 virtual machines with Hadoop v2.6.0 and Spark v1.4.1 and a series of other data science related tools (iPython with various kernels etc.). Based on the excellent work of [Jee Vang](https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1) and [Nick Tai](https://github.com/CorcovadoMing/vagrant-hadoop-2.4.1-spark-1.0.1).
 
 1. node1 : HDFS NameNode + Spark Master + Anaconda
 2. node2 : YARN ResourceManager + JobHistoryServer + ProxyServer
@@ -90,6 +90,12 @@ Start the Ipython Notebook using the following command:
 ipython notebook --ip=0.0.0.0
 ```
 Since there is no graphical environment in the virtual machine, the notebook is only accesible from the host. In a host browser enter the following URL http://10.211.55.101:8888
+
+### Start the IRKernel
+In order to make the R Kernel (IRKernel) available in the iPython notebooks, run the following command in the linux command line:
+```
+R -q -e "IRkernel::installspec()"
+```
 
 # Web UI
 You can check the following URLs to monitor the Hadoop daemons or the IPython Notebook.

@@ -1,0 +1,5 @@
+
+# http://www.r-bloggers.com/installing-r-packages/
+
+options(repos=structure(c(CRAN="http://stat.ethz.ch/CRAN/")))
+

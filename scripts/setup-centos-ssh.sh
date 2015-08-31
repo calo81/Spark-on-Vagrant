@@ -19,13 +19,9 @@ done
 #echo "total nodes = $TOTAL_NODES"
 
 function installSSHPass {
-  # enable epel repo
-  wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-  rpm -ivh epel-release-7-5.noarch.rpm
+  # epel repo should be available (installation in script setup-centos.sh)
   # install sshpass
   yum -y install sshpass
-  # remove the rpm
-  rm epel-release-7-5.noarch.rpm
 }
 
 function overwriteSSHCopyId {
