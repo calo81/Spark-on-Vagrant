@@ -49,6 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         node.vm.provision "shell", path: "scripts/hadoop-format-namenode.sh"
         node.vm.provision "shell", path: "scripts/setup-anaconda.sh"
         node.vm.provision "shell", path: "scripts/setup-r-project.sh"
+        node.vm.provision "shell", path: "scripts/setup-scala.sh"
         
 				node.vm.provision "shell", path: "scripts/init-start-all-services.sh", run: "always"
 			end

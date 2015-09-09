@@ -7,6 +7,8 @@
 /resources/spark-1.4.1-bin-hadoop2.6.tgz
 /resources/hadoop-2.6.0.tar.gz
 /resources/Anaconda3-2.3.0-Linux-x86_64.sh
+/resources/scala-2.10.4.tgz
+/resources/jupyter-scala-cli_2.10.4-0.2.0-SNAPSHOT.tar.gz
 /learn-scala/.cache
 /learn-scala/.classpath
 /learn-scala/.gitignore
