@@ -2,14 +2,14 @@ Vagrant.require_version ">= 1.4.3"
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-	numNodes = 4
+	numNodes = 2
 	r = numNodes..1
 	(r.first).downto(r.last).each do |i|
 		config.vm.define "node#{i}" do |node|
 			node.vm.box = "boxcutter/centos71"
 			node.vm.provider "virtualbox" do |v|
 			  v.name = "node#{i}"
-			  v.customize ["modifyvm", :id, "--memory", "2048"]
+			  v.customize ["modifyvm", :id, "--memory", "1024"]
 			end
 			if i < 10
 				node.vm.network :private_network, ip: "10.211.55.10#{i}"

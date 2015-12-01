@@ -4,22 +4,22 @@
 JAVA_ARCHIVE=jdk-7u51-linux-x64.gz
 
 #scala
-SCALA_VERSION=scala-2.10.4
+SCALA_VERSION=scala-2.10.7
 SCALA_ARCHIVE=${SCALA_VERSION}.tgz
 SCALA_MIRROR_DOWNLOAD=http://www.scala-lang.org/files/archive/${SCALA_VERSION}.tgz
 
 #hadoop
 HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
-HADOOP_VERSION=hadoop-2.6.0
+HADOOP_VERSION=hadoop-2.6.2
 HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
-HADOOP_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hadoop/core/hadoop-2.6.0/hadoop-2.6.0.tar.gz
+HADOOP_MIRROR_DOWNLOAD=http://apache.mirror.anlx.net/hadoop/common/hadoop-2.6.2/hadoop-2.6.2.tar.gz
 HADOOP_RES_DIR=/vagrant/resources/hadoop
 
 #spark
-SPARK_VERSION=spark-1.4.1
+SPARK_VERSION=spark-1.5.2
 SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.6.tgz
-SPARK_MIRROR_DOWNLOAD=http://www.apache.org/dist/spark/spark-1.4.1/spark-1.4.1-bin-hadoop2.6.tgz
+SPARK_MIRROR_DOWNLOAD=http://www.apache.org/dist/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
 
